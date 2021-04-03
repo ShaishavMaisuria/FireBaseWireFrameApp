@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119816511120",
+    "project_id": "fir-wireframe",
+    "storage_bucket": "fir-wireframe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119816511120:android:d5ea0f53580e1bd6d4c215",
+        "android_client_info": {
+          "package_name": "com.example.firebasewireframeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119816511120-4am4d6g71jacgqn00jvsi5vddp6o9b2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2t4K_uJ6JnB-R2-sisRfYKzgdO5Eh2Vg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119816511120-4am4d6g71jacgqn00jvsi5vddp6o9b2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

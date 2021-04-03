@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FireBaseWireFrameApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="StringLoginButton">Login</string>
+    <string name="StringCreateNewAccounnt">Create New Account</string>
+    <string name="StringEmail">Email</string>
+    <string name="StringPassword">Password</string>
+    <string name="StringForumTitle">Forum Title</string>
+    <string name="StringForumDescription">Forum Description</string>
+    <string name="StringSubmit">Submit</string>
+    <string name="StringCancel">Cancel</string>
+    <string name="StringLogout">Logout</string>
+    <string name="StringNewForum">New Forum</string>
+    <string name="StringName">Name</string>
+</resources>
