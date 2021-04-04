@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener , CreateNewAccount.NewAccountListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener , CreateNewAccount.NewAccountListener, Forums.ForumsListener , NewForum.NewForumListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,35 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     public void loginToCreateNewAccount() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.rootView,new CreateNewAccount())
+                .commit();
+    }
+
+    @Override
+    public void logoutFromForums() {
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView,new LoginFragment())
+                .commit();
+    }
+
+    @Override
+    public void ForumtoNewForums() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView,new NewForum())
+                .commit();
+    }
+
+    @Override
+    public void ForumToEntireForum() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView,new EntireForumFragment())
+                .commit();
+    }
+
+    @Override
+    public void OnSuccesfulForumCreation() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.rootView,new Forums())
                 .commit();
     }
 }

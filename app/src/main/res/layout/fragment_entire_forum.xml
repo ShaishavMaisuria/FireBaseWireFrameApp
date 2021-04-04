@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/entireForum"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/customborder"
     android:padding="16dp"
-    tools:context=".DisplayEachForum">
+    tools:context=".EntireForumFragment">
 
     <TextView
         android:id="@+id/textViewPostTitleEntireForum"
@@ -43,31 +42,44 @@
         android:id="@+id/textViewNumberOfCommentsEntireForum"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewunLike"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionEntireForum" />
 
-    <ImageView
-        android:id="@+id/imageViewDelete"
-        android:layout_width="49dp"
-        android:layout_height="46dp"
-        android:src="@drawable/rubbish_bin"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewNumberOfCommentsEntireForum"
-        app:layout_constraintEnd_toEndOf="@+id/textViewDescriptionEntireForum"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionEntireForum"
-        app:layout_constraintVertical_bias="0.0" />
+    <Button
+        android:id="@+id/buttonPostEntireForum"
+        android:layout_width="76dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/StringPost"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumberOfCommentsEntireForum" />
 
-    <ImageView
-        android:id="@+id/imageViewunLike"
-        android:layout_width="58dp"
-        android:layout_height="40dp"
-        android:src="@drawable/like_not_favorite"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewNumberOfCommentsEntireForum"
-        app:layout_constraintEnd_toStartOf="@+id/imageViewDelete"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionEntireForum"
-        app:layout_constraintVertical_bias="0.0" />
+    <EditText
+        android:id="@+id/editTextCommentEntireForum"
+        android:layout_width="276dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPostEntireForum"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNumberOfCommentsEntireForum" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recylerViewEntireForum"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCommentEntireForum" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

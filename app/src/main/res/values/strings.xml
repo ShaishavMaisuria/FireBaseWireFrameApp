@@ -13,4 +13,5 @@
     <string name="StringLogout">Logout</string>
     <string name="StringNewForum">New Forum</string>
     <string name="StringName">Name</string>
+    <string name="StringPost">Post</string>
 </resources>
