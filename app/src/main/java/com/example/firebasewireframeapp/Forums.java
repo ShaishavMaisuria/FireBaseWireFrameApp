@@ -209,7 +209,7 @@ public class Forums extends Fragment {
                     itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            mlistener.ForumToEntireForum();
+                            mlistener.ForumToEntireForum(mforum.forumId);
                         }
                     });
 
@@ -315,7 +315,7 @@ public class Forums extends Fragment {
     interface ForumsListener {
         void logoutFromForums();
         void ForumtoNewForums();
-        void ForumToEntireForum();
+        void ForumToEntireForum(String forumId);
     }
 
 
