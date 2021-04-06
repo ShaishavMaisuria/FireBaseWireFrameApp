@@ -29,6 +29,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -207,7 +208,7 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
     public class EntireForumViewHolder extends RecyclerView.ViewHolder{
         Comments comment;
         Forum mforum;
-        TextView commentorName,commentDesc;
+        TextView commentorName,commentDesc,commentTime;
 
 
             public EntireForumViewHolder(@NonNull View itemView) {
@@ -217,7 +218,7 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
                 commentorName=itemView.findViewById(R.id.textViewEachCommentPersonName);
                 commentDesc=itemView.findViewById(R.id.textViewEachCommentDesc);
                 imgDelete=itemView.findViewById(R.id.imageViewDeleteComment);
-
+                commentTime=itemView.findViewById(R.id.textViewCommentTimeStamp);
 //                db.collection("forums").document()
 
 
@@ -226,12 +227,13 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
 
 
         public void setupForumRow(Comments coment, Forum forum){
-
+            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
                 this.comment=coment;
                 this.mforum=forum;
 
                 commentorName.setText(comment.personName);
                 commentDesc.setText(comment.comments);
+                commentTime.setText(""+formatter.format(mforum.getCreateAt().toDate()));
                 if(mAuth.getCurrentUser().getUid().equals(comment.uid)){
                     imgDelete.setVisibility(View.VISIBLE);
                     imgDelete.setOnClickListener(new View.OnClickListener() {
