@@ -52,7 +52,7 @@ EditText editTextNewAccountEmailAddress;
         editTextNewAccountPassword = view.findViewById(R.id.editTextNewAccountPassword);
 
 
-        editTextNewAccountEmailAddress.setText("a@ea.com");
+        editTextNewAccountEmailAddress.setText("t@t.com");
         editTextNewAccountPassword.setText("test123");
         //loginUser()
 

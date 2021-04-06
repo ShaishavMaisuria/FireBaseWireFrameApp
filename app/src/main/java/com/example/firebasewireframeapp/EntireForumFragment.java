@@ -12,9 +12,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -91,6 +98,33 @@ public class EntireForumFragment extends Fragment {
 
 
 
+        postNewComment=view.findViewById(R.id.editTextCommentEntireForum);
+
+        view.findViewById(R.id.buttonPostEntireForum).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String comment=postNewComment.getText().toString();
+                if(comment==""){
+                    Toast.makeText(getActivity(),"comment cannot be empty",Toast.LENGTH_LONG).show();
+                }else{
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    Comments userComment= new Comments(comment,mAuth.getCurrentUser().getDisplayName(),mAuth.getCurrentUser().getUid(), Timestamp.now());
+                    db.collection("forums").document(forumID).collection("comments").add(userComment).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentReference> task) {
+//                            Log.d(TAG,"comment Task status"+task.getException().getMessage());
+
+
+                        }
+                    });
+
+
+                }
+            }
+        });
+
+
         return view;
     }
     Forum forum;
@@ -109,6 +143,7 @@ public class EntireForumFragment extends Fragment {
                 Log.d(TAG,forum.toString()+"");
 
                 getComments();
+
             }
         });
 
@@ -125,7 +160,7 @@ public class EntireForumFragment extends Fragment {
 
                         Log.d(TAG,document.getId()+" >"+document.getData());
                         Comments comment =document.toObject(Comments.class);
-//                        comment.setForumId(document.getId());
+                        comment.setCommentId(document.getId());
                         Log.d(TAG,forum.toString()+"");
                         commentList.add(comment);
 
@@ -140,8 +175,9 @@ public class EntireForumFragment extends Fragment {
             }
         });
     }
-
+    EditText postNewComment;
     ArrayList<Comments> commentList= new ArrayList<>();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireForumViewHolder>{
     public EntireForumAdapter() {
     }
@@ -173,17 +209,21 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
         Forum mforum;
         TextView commentorName,commentDesc;
 
+
             public EntireForumViewHolder(@NonNull View itemView) {
                 super(itemView);
 
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
                 commentorName=itemView.findViewById(R.id.textViewEachCommentPersonName);
                 commentDesc=itemView.findViewById(R.id.textViewEachCommentDesc);
+                imgDelete=itemView.findViewById(R.id.imageViewDeleteComment);
+
 //                db.collection("forums").document()
 
 
 
             }
+
 
         public void setupForumRow(Comments coment, Forum forum){
 
@@ -192,6 +232,26 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
 
                 commentorName.setText(comment.personName);
                 commentDesc.setText(comment.comments);
+                if(mAuth.getCurrentUser().getUid().equals(comment.uid)){
+                    imgDelete.setVisibility(View.VISIBLE);
+                    imgDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            Log.d(TAG,"Delete button pressessed");
+                            db.collection("forums").document(mforum.getForumId()).collection("comments").document(comment.getCommentId()).delete();
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+
+                }else{
+                    imgDelete.setVisibility(View.INVISIBLE);
+
+                }
+
+
 
         }
         }

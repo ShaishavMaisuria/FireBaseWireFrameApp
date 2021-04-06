@@ -16,7 +16,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="36dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewDeleteComment"
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewEachCommentPersonName" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewDeleteComment"
         android:layout_width="66dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewCommentTimeStamp"
         android:layout_width="108dp"
         android:layout_height="33dp"
         android:layout_marginTop="28dp"

@@ -280,11 +280,6 @@ public class Forums extends Fragment {
                     }
                 });
 
-
-
-
-
-
                 String first200chars;
                 first200chars = mforum.getDesc().substring(0,Math.min(mforum.getDesc().length(),200));
                 title.setText(mforum.title);

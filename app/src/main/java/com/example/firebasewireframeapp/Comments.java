@@ -6,14 +6,41 @@ public class Comments {
 
     String comments,personName,uid;
     Timestamp commentTime;
+    String commentId;
+    public Comments() {
+    }
+
+    public Comments(String comments, String personName, String uid, Timestamp commentTime, String commentId) {
+        this.comments = comments;
+        this.personName = personName;
+        this.uid = uid;
+        this.commentTime = commentTime;
+        this.commentId = commentId;
+    }
+
+    public Comments(String comments, String personName, String uid, Timestamp commentTime) {
+        this.comments = comments;
+        this.personName = personName;
+        this.uid = uid;
+        this.commentTime = commentTime;
+    }
+
+    public String getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
+    }
 
     @Override
     public String toString() {
         return "Comments{" +
-                "comment='" + comments + '\'' +
+                "comments='" + comments + '\'' +
                 ", personName='" + personName + '\'' +
                 ", uid='" + uid + '\'' +
                 ", commentTime=" + commentTime +
+                ", commentId='" + commentId + '\'' +
                 '}';
     }
 
