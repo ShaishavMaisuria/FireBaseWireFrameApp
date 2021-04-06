@@ -5,28 +5,31 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/customborder"
     android:padding="16dp"
     tools:context=".EachCommentFragment">
 
     <TextView
         android:id="@+id/textViewEachCommentPersonName"
-        android:layout_width="142dp"
-        android:layout_height="29dp"
+        android:layout_width="197dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/imageViewDeleteComment"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewEachCommentDesc"
         android:layout_width="0dp"
-        android:layout_height="37dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,8 +37,8 @@
 
     <ImageView
         android:id="@+id/imageViewDeleteComment"
-        android:layout_width="66dp"
-        android:layout_height="60dp"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -45,10 +48,11 @@
 
     <TextView
         android:id="@+id/textViewCommentTimeStamp"
-        android:layout_width="108dp"
-        android:layout_height="33dp"
+        android:layout_width="222dp"
+        android:layout_height="26dp"
         android:layout_marginTop="28dp"
-        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.818"
         app:layout_constraintStart_toStartOf="parent"

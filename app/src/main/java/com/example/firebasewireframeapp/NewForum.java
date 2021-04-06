@@ -82,6 +82,7 @@ public class NewForum extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_new_forum, container, false);
+        getActivity().setTitle("New Forum");
         editTextNewForumDesc=view.findViewById(R.id.editTextNewForumDesc);
 
         editTextNewForumTitle=view.findViewById(R.id.editTextNewForumTitle);

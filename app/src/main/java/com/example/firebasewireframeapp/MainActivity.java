@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     public void ForumtoNewForums() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.rootView,new NewForum())
+                .addToBackStack(null)
                 .commit();
     }
 

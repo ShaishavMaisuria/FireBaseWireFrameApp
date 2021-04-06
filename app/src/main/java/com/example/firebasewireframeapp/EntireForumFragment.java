@@ -105,12 +105,12 @@ public class EntireForumFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String comment=postNewComment.getText().toString();
-                if(comment==""){
+                String userCurrentcomment=postNewComment.getText().toString();
+                if(userCurrentcomment.isEmpty()){
                     Toast.makeText(getActivity(),"comment cannot be empty",Toast.LENGTH_LONG).show();
                 }else{
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
-                    Comments userComment= new Comments(comment,mAuth.getCurrentUser().getDisplayName(),mAuth.getCurrentUser().getUid(), Timestamp.now());
+                    Comments userComment= new Comments(userCurrentcomment,mAuth.getCurrentUser().getDisplayName(),mAuth.getCurrentUser().getUid(), Timestamp.now());
                     db.collection("forums").document(forumID).collection("comments").add(userComment).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {

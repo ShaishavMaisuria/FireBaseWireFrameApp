@@ -285,7 +285,15 @@ public class Forums extends Fragment {
                 title.setText(mforum.title);
                 desc.setText(first200chars);
                 authorName.setText(mforum.createByName);
-                time.setText(""+formatter.format(mforum.getCreateAt().toDate()));
+                String likesString;
+                if(mforum.likedBy.size()>1){
+                    likesString=mforum.likedBy.size()+" Likes";
+                }else if(mforum.likedBy.size()==1){
+                     likesString=mforum.likedBy.size()+" Like";
+                }else{
+                     likesString="No Like";
+                }
+                time.setText(likesString+" | "+formatter.format(mforum.getCreateAt().toDate()));
 
             }
         }
