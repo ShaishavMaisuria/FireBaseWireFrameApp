@@ -91,7 +91,7 @@ public class Forums extends Fragment {
        recyclerView.setLayoutManager(layoutManager);
        adapter=new ForumAdapter();
        recyclerView.setAdapter(adapter);
-       getActivity().setTitle(mAuth.getCurrentUser().getDisplayName());
+       getActivity().setTitle("Forums for " + mAuth.getCurrentUser().getDisplayName());
 
         getForums();
 

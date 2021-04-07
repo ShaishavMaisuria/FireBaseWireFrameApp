@@ -84,7 +84,7 @@ public class CreateNewAccount extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_create_new_account, container, false);
-
+        getActivity().setTitle("Create New Account");
          editTexNewAccountName=view.findViewById(R.id.editTexNewAccountName);
          editTextNewAccountPassword=view.findViewById(R.id.editTextNewAccountPassword);
          editTextNewAccountEmailAddress=view.findViewById(R.id.editTextNewAccountEmailAddress);

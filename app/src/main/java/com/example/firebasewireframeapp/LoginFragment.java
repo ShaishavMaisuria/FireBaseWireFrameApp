@@ -50,7 +50,7 @@ EditText editTextNewAccountEmailAddress;
         View view = inflater.inflate(R.layout.fragment_login, container, false);
         editTextNewAccountEmailAddress = view.findViewById(R.id.editTextNewAccountEmailAddress);
         editTextNewAccountPassword = view.findViewById(R.id.editTextNewAccountPassword);
-
+        getActivity().setTitle("Login");
 
         editTextNewAccountEmailAddress.setText("t@t.com");
         editTextNewAccountPassword.setText("test123");

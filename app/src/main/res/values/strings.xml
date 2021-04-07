@@ -14,4 +14,5 @@
     <string name="StringNewForum">New Forum</string>
     <string name="StringName">Name</string>
     <string name="StringPost">Post</string>
+    <string name="stringWriteComment">Write Comment</string>
 </resources>

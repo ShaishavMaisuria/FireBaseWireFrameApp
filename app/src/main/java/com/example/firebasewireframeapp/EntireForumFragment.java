@@ -71,7 +71,7 @@ public class EntireForumFragment extends Fragment {
 
         }
     }
-    TextView title,desc,time,authorName,forumName;
+    TextView title,desc,time,authorName,numberOfComments;
     ImageView imgDelete;
     RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -83,7 +83,7 @@ public class EntireForumFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_entire_forum, container, false);
         title=view.findViewById(R.id.textViewPostTitleEntireForum);
         desc=view.findViewById(R.id.textViewDescriptionEntireForum);
-
+        numberOfComments=view.findViewById(R.id.textViewNumberOfCommentsEntireForum);
         authorName=view.findViewById(R.id.textViewAuthorEntireForum);
 
         recyclerView=view.findViewById(R.id.recylerViewEntireForum);
@@ -115,10 +115,11 @@ public class EntireForumFragment extends Fragment {
                         @Override
                         public void onComplete(@NonNull Task<DocumentReference> task) {
 //                            Log.d(TAG,"comment Task status"+task.getException().getMessage());
-
+                            postNewComment.setText("");
 
                         }
                     });
+
 
 
                 }
@@ -142,8 +143,9 @@ public class EntireForumFragment extends Fragment {
                 desc.setText(forum.desc);
                 authorName.setText(forum.createByName);
                 Log.d(TAG,forum.toString()+"");
-
                 getComments();
+
+
 
             }
         });
@@ -165,6 +167,13 @@ public class EntireForumFragment extends Fragment {
                         Log.d(TAG,forum.toString()+"");
                         commentList.add(comment);
 
+                    }
+                    if(commentList.size()>1) {
+                        numberOfComments.setText(commentList.size() + " Comments");
+                    }else if (commentList.size()==1) {
+                        numberOfComments.setText(commentList.size() + " Comment");
+                    }else{
+                        numberOfComments.setText("No Comment");
                     }
 
                     Log.d(TAG,"Comments"+commentList.toString());
@@ -233,7 +242,7 @@ class EntireForumAdapter extends RecyclerView.Adapter<EntireForumAdapter.EntireF
 
                 commentorName.setText(comment.personName);
                 commentDesc.setText(comment.comments);
-                commentTime.setText(""+formatter.format(mforum.getCreateAt().toDate()));
+                commentTime.setText(""+formatter.format(comment.commentTime.toDate()));
                 if(mAuth.getCurrentUser().getUid().equals(comment.uid)){
                     imgDelete.setVisibility(View.VISIBLE);
                     imgDelete.setOnClickListener(new View.OnClickListener() {
